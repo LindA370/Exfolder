@@ -1,0 +1,94 @@
+/*this css is applied to cssexample.html*/
+/* Example of inline css
+<h1 style="color: red;">My heading</h1>
+*/
+/* to change h2 element's style: color red font size:14 px ..*/
+h2{
+    color: red;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: underline;
+}
+/* selectors tell the browser what CSS rules to apply for a specific element: for example
+the above css style is applied to html element */
+
+/* Selector Lists: If you have the same css for multiple elements, the individual selectors
+can be combines. That is let us assume that we will apply same css for h1 and 
+also a class .redtext, we can write the following css */
+h1, .redtext {
+    color:rgb(68, 4, 4);
+}
+span, strong,em {
+    background-color: bisque;
+}
+/* Types of CSS selector
+- Selector for an HTML element such as: h1 {} p {} 
+- Selector that taragets a class such as: .note {}
+- Selector that tragets an ID such as: #id
+- Pseudo-classes & pseudo elements: that is a class has 
+different states such as for a link it can be an active link,
+visited link, on hover. You can apply css based on the state
+of an element such as a:hover {} p::first-line{}
+- Combinators that is to target elements by 
+combining with other selector such as <article> elements
+using the child combinator (>): artile >p {}
+- The universal selector that selects everything in the document: *{}
+*/
+.note {
+    color:blueviolet;
+}
+#note1 {
+    color:yellow;
+}
+p::first-letter{
+    color:red;
+    font-size: larger;
+}
+article > p { 
+    background-color: thistle;
+}
+*{
+    margin-left: 20px;
+}
+.notebox {
+    border: 4px solid #666;
+    padding: .5em;
+    
+}
+
+.notebox.warning {
+    border: 4px solid orange;
+    font-weight: bold;
+}
+
+.notebox.danger {
+    border: 4px solid red;
+    font-weight: bold;
+}
+/* Background Colors: It defines the background color for any 
+element in CSS.
+
+Background Image: it defines the background image. The image link is
+not correctly written,lets learn to use inspect element in browser and 
+fix the link for image */
+header{
+    background-color: rgb(80, 190, 29);
+    background-image:url("images/th.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100px 10em;
+}
+mytitle {
+    
+    background-image:url("images/th.jpeg");
+    background-color: rgb(206, 228, 13);
+}
+
+/* You can also use multiple background images
+The first backgound will be image1.png, 
+second image2.png and third image3.png */
+.multipleBg {
+    background-image: url("image1.png"), url("image2.png"), url("image3.png");
+
+}
+/* Check yourself Borders, rounded corners, text-direction, margin,padding, 
+the overflow property, css values and units, */
