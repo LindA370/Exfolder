@@ -14,11 +14,27 @@
     <br> 
     Postitoimipaikka: <input type="text" name="ppaikka" value=""> 
 </form>
-<button name="Lähetä" id="laheta">Lähetä </button> <br>
+<button name="Lähetä" id="laheta" onclick="lahetysM();">Lähetä </button> <br>
 
 <p id="tulos"> Mitäs tuli tulokseksi? </p>
 
 <footer> <p> : celia k </p> </footer>
+
+<script>
+
+    function lahetysM(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200){
+                document.getElementById("tulos").innerHTML = this.responseText;}
+        };
+        xhttp.open("post","ajaxtunt.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-from-urlcoded");
+        xhttp.send("nimi="+nimi.value+"&pnumero="+pnumero.value+"&ppaikka"+ppaikka.value);
+    }
+</script>
+
+
 <script>
 $(document).ready(function(){
 $("#laheta").click(function(){
