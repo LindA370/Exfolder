@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <title>tuntitehtävä (5) </title>
+    </head>
+<body> 
+    <h2> Tuntitehtävä 10.2.21 : AJAX </h2>
+<form>
+    <br> <br>
+    Nimi: <input type="text" name="nimi" value=""> 
+    <br> 
+    Postinumero: <input type="number" name="pnumero" value="">
+    <br> 
+    Postitoimipaikka: <input type="text" name="ppaikka" value=""> 
+</form>
+<button name="Lähetä" id="laheta">Lähetä </button> <br>
+
+<p id="tulos"> Mitäs tuli tulokseksi? </p>
+
+<footer> <p> : celia k </p> </footer>
+<script>
+$(document).ready(function(){
+$("#laheta").click(function(){
+$.post("ajaxtunt.php",
+{
+    nimi:$("#nimi").val(),
+    pnumero:$("#pnumero").val(),
+    ppaikka:$("#ppaikka").val() 
+},
+function(data, status) {
+    $("#tulos").html(data); });
+});
+});
+</script>
+
+</body>
+</html>
