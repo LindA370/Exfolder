@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <title>tehtävä (6) </title>
+         <script>
+        function sendData(lomake){
+            var fisu= new Object();
+            fisu.laji= lomake.laji.value;
+            fisu.paino= lomake.paino.value;
+            fisu.pituus= lomake.pituus.value;
+
+            var x=JSON.stringify(fisu);
+
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechnange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tulos").innerHTML = this.responseText;
+                
+                }
+            };
+            xmlhttp.open("POST", "6thet.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("fisu=" + x); }
+
+
+        </script>
+    </head>
+<body> 
+    <h2> Tuntitehtävä 10.- 11.2.21 : AJAX pt2 </h2>
+<form>
+    JSON : <input type="text" name="fisu" value=""><br>
+    KALALAJI : <input type="text" name="laji" id="laji" value=""> <br>
+    PAINO : 
+    <select name="paino">
+        <option value="1">1 - 2 kg</option>
+        <option value="2">2 - 4 kg </option>
+        <option value="3">4 - 6 kg </option>
+        <option value="4">6 - 8 kg </option>
+        <option value="5">8 - 10 kg </option>
+        <option value="6">10 - 12 kg </option>
+        <option value="7">yli 12 kg</option>
+    </select>
+    PITUUS :   <select name="pituus">
+        <option value="1">alle 10 cm </option>
+        <option value="2">10 - 20cm </option>
+        <option value="3">20 - 30 cm</option>
+        <option value="4">40 - 60 cm </option>
+        <option value="5">70 - 90 cm </option>
+        <option value="6">100 - 150 cm</option>
+        <option value="7">yli 150 cm </option>
+    </select> <br>
+    <input type="button" name="ok" value="OK" onclick="sendData(this.form);">
+</form>
+
+<p id="tulos"> </p>
+    
+</body>
+</html>
